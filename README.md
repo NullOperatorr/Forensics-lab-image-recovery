@@ -5,7 +5,7 @@ CyberLab-08
 
 # Corrupted Image Forensics Investigation
 
-<img width="700" height="500" alt="image" src="https://github.com/user-attachments/assets/e061c4b9-0797-4f12-bba6-3ca8fd62a26a" />
+<img width="600" height="500" alt="image" src="https://github.com/user-attachments/assets/e061c4b9-0797-4f12-bba6-3ca8fd62a26a" />
 
 
 ## Overview
