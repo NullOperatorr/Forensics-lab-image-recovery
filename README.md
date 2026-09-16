@@ -10,7 +10,6 @@ CyberLab-08
 
 ## Overview
 
-This project documents the forensic analysis and recovery of two corrupted image files using **FTK Imager** and **010 Editor**.  
 You are a forensic investigator assigned to examine two image files suspected of being tampered with. The files are corrupted and cannot be opened normally.  
 Your task is to determine the cause of the corruption and recover the original images without modifying the original evidence.  
 
