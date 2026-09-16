@@ -10,8 +10,11 @@ CyberLab-08
 
 ## Overview
 
-This project documents the forensic analysis of two corrupted image files using FTK Imager and 010 Editor.  
-The goal is to recover the original images without modifying the evidence.
+This project documents the forensic analysis and recovery of two corrupted image files using **FTK Imager** and **010 Editor**.  
+Assume the evidence was tampered with and the images became corrupted. As a forensic investigator, the goal is to recover the original images without modifying the original evidence.  
+
+- **Note:** All analysis and recovery attempts must be performed on copies of the evidence to preserve its integrity.
+
 
 ## Objectives
 
