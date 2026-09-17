@@ -114,7 +114,7 @@ Before we start, you need to understand what the tools we are using do.
 
  **Step 2: Hexadecimal Analysis**
 
-1. Open the image file in **010 Editor**.
+**1. Open the image file in **010 Editor**.**
 
 <img width="866" height="593" alt="image" src="https://github.com/user-attachments/assets/83c11603-77ed-40a9-a1ec-e3c1c275985e" />
 
@@ -130,7 +130,7 @@ Before we start, you need to understand what the tools we are using do.
 
   
 
-2. Examining the Raw Data.
+**2. Examining the Raw Data.**
 
 To make the investigation easier, right-click on the sector numbers and select:  
 **Addresses → Display Format → Sector Number (Decimal)**  
@@ -138,7 +138,7 @@ This displays the file offset as sector numbers instead of hexadecimal addresses
 
 <img width="938" height="453" alt="image" src="https://github.com/user-attachments/assets/36f3d38e-dac4-4e56-a579-ca39302cb641" />
 
-3. Examining the First 512 Bytes & Partition table.
+**3. Examining the First 512 Bytes & Partition table.**
 
 To make the MBR structure easier to understand, download the `drive.bt` binary template from the template repository and load it into **010 Editor**.  
 The template helps interpret the first **512 bytes** according to the MBR structure instead of viewing the bytes only as raw hexadecimal values.
@@ -245,14 +245,10 @@ We therefore change the Relative Sector value from:
 
 The modified image is then saved as a **separate working copy**.
 
-> **Important:** The original evidence is not modified. The change is made only to the forensic working copy.
 
-### Testing the Recovery
+**5. Testing the Recovery**
 
-After saving the modified working copy, load the image again in **FTK Imager**.
-
-The purpose of this step is to determine whether correcting the partition start location allows FTK Imager to correctly recognize and access the partition.
-
+After saving the modified working copy, load the image again in **FTK Imager**.  
 After loading the modified image, we can verify whether:
 
 * The partition is recognized.
