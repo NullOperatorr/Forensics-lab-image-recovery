@@ -152,8 +152,6 @@ After examining the four entries, we can see that:
 * **Partition 0** contains the relevant partition information.
 * The other partition entries contain `00` values and do not describe an active partition in this image.
 
-Each partition entry contains several important fields, including the partition type, starting location, and size.
-
 <img width="1211" height="861" alt="image" src="https://github.com/user-attachments/assets/918cef3e-e40c-43f0-884b-35be5cb01315" />
 
 
