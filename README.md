@@ -37,8 +37,8 @@ Your task is to determine the cause of the corruption and recover the original i
 
 ## Tools Used
 
-- FTK Imager
-- 010 Editor
+- FTK Imager (https://www.exterro.com/ftk-downloads)
+- 010 Editor (https://www.sweetscape.com/download/010editor/)
 
 ## Investigation Process
 
