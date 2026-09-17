@@ -144,6 +144,7 @@ To make the MBR structure easier to understand, download the `drive.bt` binary t
 The template helps interpret the first **512 bytes** according to the MBR structure instead of viewing the bytes only as raw hexadecimal values.
 
 <img width="1363" height="843" alt="image" src="https://github.com/user-attachments/assets/c0350c25-bb28-4479-844d-319bf987b268" />
+<img width="559" height="381" alt="image" src="https://github.com/user-attachments/assets/42010b6d-3b52-4afc-a38c-64828665eda9" />
 
 After applying the template, we can identify:
 
@@ -163,7 +164,6 @@ After examining the four entries, we can see that:
 
 Each partition entry contains several important fields, including the partition type, starting location, and size.
 
-<img width="559" height="381" alt="image" src="https://github.com/user-attachments/assets/42010b6d-3b52-4afc-a38c-64828665eda9" />
 <img width="1211" height="861" alt="image" src="https://github.com/user-attachments/assets/918cef3e-e40c-43f0-884b-35be5cb01315" />
 
 
