@@ -119,16 +119,7 @@ Before we start, you need to understand what the tools we are using do.
 - **1. Open the image file in **010 Editor**.**
 
 <img width="866" height="593" alt="image" src="https://github.com/user-attachments/assets/83c11603-77ed-40a9-a1ec-e3c1c275985e" />
-
- 
-    
-
-<img width="1059" height="245" alt="image" src="https://github.com/user-attachments/assets/d2afb204-522f-423d-ab47-06d5ae95a3b8" />  
-<img width="1177" height="846" alt="image" src="https://github.com/user-attachments/assets/a93917aa-3102-45e1-89a1-73aadbdf9b75" />
-<img width="987" height="566" alt="image" src="https://github.com/user-attachments/assets/922c9b45-b680-4ab8-8b9c-a0c3799113ad" />
-
-
-  
+<img width="1177" height="846" alt="image" src="https://github.com/user-attachments/assets/a93917aa-3102-45e1-89a1-73aadbdf9b75" /> 
 
 - **2. Examining the Raw Data.**
 
@@ -143,7 +134,6 @@ This displays the file offset as sector numbers instead of hexadecimal addresses
 To make the MBR structure easier to understand, download the `drive.bt` binary template from the template repository and load it into **010 Editor**.  
 The template helps interpret the first **512 bytes** according to the MBR structure instead of viewing the bytes only as raw hexadecimal values.
 
-<img width="1363" height="843" alt="image" src="https://github.com/user-attachments/assets/c0350c25-bb28-4479-844d-319bf987b268" />
 <img width="559" height="381" alt="image" src="https://github.com/user-attachments/assets/42010b6d-3b52-4afc-a38c-64828665eda9" />
 
 After applying the template, we can identify:
@@ -184,6 +174,9 @@ Partition Size  = Total Sectors
 Partition End   = Relative Sector + Total Sectors - 1
 ```
 
+<img width="1059" height="245" alt="image" src="https://github.com/user-attachments/assets/d2afb204-522f-423d-ab47-06d5ae95a3b8" />  
+
+
 These values are important when reconstructing or validating a damaged partition entry.
 
 - **5. Searching for NTFS Structures**
@@ -193,12 +186,14 @@ The search can reveal multiple occurrences of the NTFS filesystem identifier wit
 It is important to note that finding multiple `NTFS` strings does **not necessarily mean that there are multiple NTFS partitions**. In this case, the first relevant NTFS structure was identified at sector `128`.  
 This provides a useful reference when investigating the incorrect partition start sector.
 
+<img width="1363" height="843" alt="image" src="https://github.com/user-attachments/assets/c0350c25-bb28-4479-844d-319bf987b268" />
+
+
 - **6.Correcting the Partition Entry**
 
 Based on the hexadecimal analysis, the **Relative Sector** value appears to be incorrect and the expected starting sector identified during the investigation is `128` therefore change the Relative Sector value from `1094795585 → 128`
 
-
-
+<img width="987" height="566" alt="image" src="https://github.com/user-attachments/assets/922c9b45-b680-4ab8-8b9c-a0c3799113ad" />
 
 **6. Testing the Recovery**
 
