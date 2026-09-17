@@ -115,12 +115,25 @@ Before we start, you need to understand what the tools we are using do.
  **Step 2: Hexadecimal Analysis**
 
 1. Open the image file in **010 Editor**.
+
+<img width="866" height="593" alt="image" src="https://github.com/user-attachments/assets/83c11603-77ed-40a9-a1ec-e3c1c275985e" />
+
 2. Examine the raw hexadecimal data of the image.
 3. Inspect the first 512 bytes to identify the MBR structure.
 4. Check the partition table and MBR signature for any abnormal or modified values.
  
 
     
+<img width="938" height="453" alt="image" src="https://github.com/user-attachments/assets/36f3d38e-dac4-4e56-a579-ca39302cb641" />
+<img width="1363" height="843" alt="image" src="https://github.com/user-attachments/assets/c0350c25-bb28-4479-844d-319bf987b268" />
+<img width="559" height="381" alt="image" src="https://github.com/user-attachments/assets/42010b6d-3b52-4afc-a38c-64828665eda9" />
+<img width="1211" height="861" alt="image" src="https://github.com/user-attachments/assets/918cef3e-e40c-43f0-884b-35be5cb01315" />
+<img width="1059" height="245" alt="image" src="https://github.com/user-attachments/assets/d2afb204-522f-423d-ab47-06d5ae95a3b8" />  
+<img width="1177" height="846" alt="image" src="https://github.com/user-attachments/assets/a93917aa-3102-45e1-89a1-73aadbdf9b75" />
+<img width="987" height="566" alt="image" src="https://github.com/user-attachments/assets/922c9b45-b680-4ab8-8b9c-a0c3799113ad" />
+<img width="868" height="402" alt="image" src="https://github.com/user-attachments/assets/9cb8980c-ff66-4124-a348-ba9d02c3d7cb" />
+<img width="1331" height="954" alt="image" src="https://github.com/user-attachments/assets/4eba6af6-3b8e-4a6a-9f64-0639a2f13555" />
+
 
     
   
