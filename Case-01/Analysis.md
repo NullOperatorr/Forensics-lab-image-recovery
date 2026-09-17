@@ -111,6 +111,8 @@ Before we start, you need to understand what the tools we are using do.
   <img width="1441" height="763" alt="image" src="https://github.com/user-attachments/assets/6e267285-6091-4472-8394-9913473bab1d" />
 
 
+---
+
 
  **Step 2: Hexadecimal Analysis**
 
