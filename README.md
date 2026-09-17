@@ -18,11 +18,13 @@ Your task is to determine the cause of the corruption and recover the original i
 
 ## Case Summary
 
-**Case:** Forensic Image Corruption Recovery
-**Evidence:** Two corrupted image files
-**Tools:** FTK Imager, 010 Editor
-**Objective:** Identify the corruption and recover the original images
-**Result:** Images successfully recovered and verified
+| Item | Details |
+|---|---|
+| **Case** | Forensic Image Corruption Recovery |
+| **Evidence** | Two corrupted image files |
+| **Tools** | FTK Imager, 010 Editor |
+| **Objective** | Identify the corruption and recover the original images |
+| **Result** | Images successfully recovered and verified |
 
 
 
