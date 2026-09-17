@@ -7,69 +7,32 @@ Before analyzing the corrupted image, it is important to understand how disks ar
 
 Two common partitioning schemes are:
 
-* **MBR (Master Boot Record)** — an older partitioning scheme.
-* **GPT (GUID Partition Table)** — a newer partitioning scheme that supports larger disks and more partitions.
+* **MBR (Master Boot Record):** An older partitioning scheme.
+* **GPT (GUID Partition Table):** A newer partitioning scheme designed to overcome some of the limitations of MBR.
 
 The partitioning scheme determines how partitions are described on a disk and where important disk information is stored.
 
-### MBR
+### 1. MBR
 
-The **Master Boot Record (MBR)** is located in the **first sector of a disk**.
+The **Master Boot Record (MBR)** is located in the **first sector of a disk**. The traditional MBR sector is **512 bytes**.
 
-The traditional MBR sector is **512 bytes** and contains:
+- Main characteristics:
 
-```text
-+---------------------------+
-| Boot Code      | 446 bytes|
-+---------------------------+
-| Partition Table|  64 bytes|
-+---------------------------+
-| Signature      |   2 bytes|
-+---------------------------+
-| Total          | 512 bytes|
-+---------------------------+
-```
-
-The last two bytes contain the MBR signature:
-
-```text
-55 AA
-```
-
-This signature is commonly used to identify a valid MBR.
-
-### VBR
-
-The **Volume Boot Record (VBR)** is located at the beginning of a partition/volume and contains information about the filesystem.
-
-For example, a **FAT32 VBR** contains important information such as:
-
-* Bytes per sector
-* Sectors per cluster
-* Reserved sectors
-* Number of FATs
-* FAT size
-* Root directory information
-* Filesystem-related metadata
-
-A simplified FAT32 structure can be represented as:
-
-```text
-Disk
-│
-├── MBR / Partition Information
-│
-└── Partition
-    │
-    └── VBR
-        ├── FAT
-        ├── FAT
-        └── Data Area
-```
-
-### First 512 Bytes
+1. Supports up to **4 primary partitions**.  
+2. Traditional MBR partitioning is limited to approximately **2 TiB**.  
+3. It is an older partitioning scheme that has been widely used since the 1980s.
 
 The first **512 bytes** are especially important when analyzing an MBR-partitioned disk because they contain the MBR.
+
+<img width="706" height="454" alt="MBR Structure" src="https://github.com/user-attachments/assets/e1f02e99-02e7-46a3-937c-9a487130f2ff" />
+
+The MBR contains three main areas:
+
+* **Boot Code:** 446 bytes
+* **Partition Table:** 64 bytes
+* **Boot Signature:** 2 bytes
+
+The last two bytes contain the MBR signature (55 AA). This signature is commonly used to identify a valid MBR.
 
 When investigating corruption, examining these bytes in a hex editor can help identify:
 
@@ -78,14 +41,38 @@ When investigating corruption, examining these bytes in a hex editor can help id
 * Invalid values
 * A missing or incorrect `55 AA` signature
 
-However, the meaning of the first 512 bytes depends on the storage layout. With **GPT**, the first sector contains a **protective MBR**, while the GPT header is stored in the following sector.
+ **VBR:**
 
-In this investigation, hexadecimal analysis will be used to examine these structures and determine whether partition or filesystem information has been modified.
+The **Volume Boot Record (VBR)** is located at the beginning of a partition or volume and contains information about the filesystem.
 
+<img width="887" height="221" alt="VBR Structure" src="https://github.com/user-attachments/assets/e750dbe1-0dbd-4acf-8eb7-b2207899dc3b" />
 
+For example, a **VBR** contains important information such as:
 
+* Bytes per sector
+* Sectors per cluster
+* Reserved sectors
+* Number of FATs
+* Filesystem-related metadata
 
+The VBR is important during forensic analysis because damage to its values can prevent the operating system or forensic tools from correctly recognizing the filesystem.
 
+### 2. GPT
+
+The **GUID Partition Table (GPT)** is a modern partitioning scheme commonly used with **UEFI** systems.
+
+Main characteristics:
+
+1. Supports a large number of partitions. Windows commonly supports up to **128 partitions** on a GPT disk.
+2. Supports disks larger than **2 TiB**.
+3. Stores partition information using **GUIDs**.
+4. Includes redundant partition information, with a backup GPT structure at the end of the disk.
+
+<img width="1026" height="419" alt="GPT Structure" src="https://github.com/user-attachments/assets/5357ab9e-9bfa-4a4f-a667-6d93548d9688" />
+
+### Lab Focus
+
+For this investigation, we will focus on **MBR-partitioned images** and examine the MBR and filesystem structures to identify the source of the corruption.
 
 ## Important Notes
 
