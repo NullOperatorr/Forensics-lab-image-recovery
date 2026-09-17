@@ -74,6 +74,8 @@ Main characteristics:
 
 For this investigation, we will focus on **MBR-partitioned images** and examine the MBR and filesystem structures to identify the source of the corruption.
 
+---
+
 ## Important Notes
 
 
@@ -85,5 +87,42 @@ Before we start, you need to understand what the tools we are using do.
 
 - **010 Editor** is a hex editor that allows investigators to **view and edit the raw bytes of a file**.  
   In this investigation, 010 Editor is used to examine the image files at the hexadecimal level and identify corrupted or modified data.
+
+
+  ---
+
+ ## Investigation
+
+ **Step 1: Initial Approach**
+
+1. Extract the `.rar` file using **WinRAR**.
+2. Open **FTK Imager** and attempt to load the forensic image.
+
+  <img width="641" height="553" alt="image" src="https://github.com/user-attachments/assets/ed1e1fdd-8b01-427b-a57d-b3636c6cd2fd" />
+  <img width="498" height="375" alt="image" src="https://github.com/user-attachments/assets/dc86a699-1863-4789-90d0-0f514e8ac9b6" />
+  <img width="1365" height="1105" alt="image" src="https://github.com/user-attachments/assets/2b575dc5-6e00-402f-ae17-8bdf4abf5f9f" />
+  <img width="782" height="591" alt="image" src="https://github.com/user-attachments/assets/42cbdf5d-bed6-4d62-aca7-804ea0b3e38b" />
+  <img width="684" height="632" alt="image" src="https://github.com/user-attachments/assets/8d6f09ca-2464-4722-bd00-f7fb272612f1" />
+
+
+
+3. FTK Imager crashes while attempting to load the image, indicating that the image may contain corrupted or malformed data.
+
+  <img width="1441" height="763" alt="image" src="https://github.com/user-attachments/assets/6e267285-6091-4472-8394-9913473bab1d" />
+
+
+
+ **Step 2: Hexadecimal Analysis**
+
+1. Open the image file in **010 Editor**.
+2. Examine the raw hexadecimal data of the image.
+3. Inspect the first 512 bytes to identify the MBR structure.
+4. Check the partition table and MBR signature for any abnormal or modified values.
+ 
+
+    
+
+    
+  
 
 
