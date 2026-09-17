@@ -169,9 +169,6 @@ Partition End   = Relative Sector + Total Sectors - 1
 
 <img width="1059" height="245" alt="image" src="https://github.com/user-attachments/assets/d2afb204-522f-423d-ab47-06d5ae95a3b8" />  
 
-
-These values are important when reconstructing or validating a damaged partition entry.
-
 - **5. Searching for NTFS Structures**
 
 We can also use **Ctrl + F** in 010 Editor to search for the string `NTFS`
