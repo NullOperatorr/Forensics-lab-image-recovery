@@ -116,7 +116,7 @@ Before we start, you need to understand what the tools we are using do.
 
  **Step 2: Hexadecimal Analysis**
 
-**1. Open the image file in **010 Editor**.**
+- **1. Open the image file in **010 Editor**.**
 
 <img width="866" height="593" alt="image" src="https://github.com/user-attachments/assets/83c11603-77ed-40a9-a1ec-e3c1c275985e" />
 
@@ -130,7 +130,7 @@ Before we start, you need to understand what the tools we are using do.
 
   
 
-**2. Examining the Raw Data.**
+- **2. Examining the Raw Data.**
 
 To make the investigation easier, right-click on the sector numbers and select:  
 **Addresses → Display Format → Sector Number (Decimal)**  
@@ -138,7 +138,7 @@ This displays the file offset as sector numbers instead of hexadecimal addresses
 
 <img width="938" height="453" alt="image" src="https://github.com/user-attachments/assets/36f3d38e-dac4-4e56-a579-ca39302cb641" />
 
-**3. Examining the First 512 Bytes & Partition table.**
+- **3. Examining the First 512 Bytes & Partition table.**
 
 To make the MBR structure easier to understand, download the `drive.bt` binary template from the template repository and load it into **010 Editor**.  
 The template helps interpret the first **512 bytes** according to the MBR structure instead of viewing the bytes only as raw hexadecimal values.
@@ -167,31 +167,16 @@ Each partition entry contains several important fields, including the partition 
 <img width="1211" height="861" alt="image" src="https://github.com/user-attachments/assets/918cef3e-e40c-43f0-884b-35be5cb01315" />
 
 
-### Relative Sector
+- **4. Relative Sector & Total Sector**
 
-One important field is **Relative Sector**.
+ **Relative Sector** specifies the starting sector of the partition relative to the beginning of the disk. It tells the system where the partition begins so that the filesystem data can be located correctly.  
 
-**Relative Sector** specifies the starting sector of the partition relative to the beginning of the disk. It tells the system where the partition begins so that the filesystem data can be located correctly.
+In our case, the Relative Sector value is `1094795585` and this value does not point to the expected location of the partition.  
+During the investigation, we identified that the first NTFS filesystem structure begins at **sector 128**.  
+Therefore, the incorrect Relative Sector value appears to be preventing the partition from being located correctly.  
 
-In our case, the Relative Sector value is:
-
-```text
-1094795585
-```
-
-This value does not point to the expected location of the partition.
-
-During the investigation, we identified that the first NTFS filesystem structure begins at **sector 128**.
-
-Therefore, the incorrect Relative Sector value appears to be preventing the partition from being located correctly.
-
-### Total Sectors
-
-Another important field is **Total Sectors**.
 
 **Total Sectors** specifies the number of sectors allocated to the partition. Together with the Relative Sector value, it defines the partition's location and size on the disk.
-
-Conceptually:
 
 ```text
 Partition Start = Relative Sector
@@ -201,52 +186,21 @@ Partition End   = Relative Sector + Total Sectors - 1
 
 These values are important when reconstructing or validating a damaged partition entry.
 
-### Searching for NTFS Structures
+- **5. Searching for NTFS Structures**
 
-We can also use **Ctrl + F** in 010 Editor to search for the string:
-
-```text
-NTFS
-```
-
+We can also use **Ctrl + F** in 010 Editor to search for the string `NTFS`
 The search can reveal multiple occurrences of the NTFS filesystem identifier within the image.
-
-It is important to note that finding multiple `NTFS` strings does **not necessarily mean that there are multiple NTFS partitions**. NTFS contains several metadata structures, and filesystem information can appear in different locations.
-
-In this case, the first relevant NTFS structure was identified at:
-
-```text
-Sector: 128
-```
-
+It is important to note that finding multiple `NTFS` strings does **not necessarily mean that there are multiple NTFS partitions**. In this case, the first relevant NTFS structure was identified at sector `128`.  
 This provides a useful reference when investigating the incorrect partition start sector.
 
-### Correcting the Partition Entry
+- **6.Correcting the Partition Entry**
 
-Based on the hexadecimal analysis, the **Relative Sector** value appears to be incorrect.
-
-The current value is:
-
-```text
-1094795585
-```
-
-The expected starting sector identified during the investigation is:
-
-```text
-128
-```
-
-We therefore change the Relative Sector value from:
-
-```text
-1094795585 → 128
-```
-
-The modified image is then saved as a **separate working copy**.
+Based on the hexadecimal analysis, the **Relative Sector** value appears to be incorrect and the expected starting sector identified during the investigation is `128` therefore change the Relative Sector value from `1094795585 → 128`
 
 
-**5. Testing the Recovery**
+
+
+**6. Testing the Recovery**
 
 After saving the modified working copy, load the image again in **FTK Imager**.  
 
