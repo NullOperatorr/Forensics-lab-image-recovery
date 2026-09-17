@@ -28,11 +28,11 @@ The first **512 bytes** are especially important when analyzing an MBR-partition
 
 The MBR contains three main areas:
 
-* **Boot Code:** 446 bytes
-* **Partition Table:** 64 bytes
-* **Boot Signature:** 2 bytes
+* **Code Area:** (446 bytes) Contains the bootloader code responsible for initiating the boot process and locating the active partition.
+* **Master Partition Table:** (64 bytes)  Contains **Four** 16-byte per partition entries, describing the partition type, starting location, size, and boot status.
+* **Boot Record Signature:** (2 bytes)  Contains the hexadecimal value `55 AA`, which marks the sector as a valid MBR.
 
-The last two bytes contain the MBR signature (55 AA). This signature is commonly used to identify a valid MBR.
+The last two bytes contain the MBR signature `(55 AA)`. This signature is commonly used to identify a valid MBR.
 
 When investigating corruption, examining these bytes in a hex editor can help identify:
 
