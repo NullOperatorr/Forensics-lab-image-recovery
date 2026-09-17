@@ -119,7 +119,6 @@ Before we start, you need to understand what the tools we are using do.
 - **1. Open the image file in **010 Editor**.**
 
 <img width="866" height="593" alt="image" src="https://github.com/user-attachments/assets/83c11603-77ed-40a9-a1ec-e3c1c275985e" />
-<img width="1177" height="846" alt="image" src="https://github.com/user-attachments/assets/a93917aa-3102-45e1-89a1-73aadbdf9b75" /> 
 
 - **2. Examining the Raw Data.**
 
@@ -154,6 +153,7 @@ After examining the four entries, we can see that:
 
 Each partition entry contains several important fields, including the partition type, starting location, and size.
 
+<img width="1363" height="843" alt="image" src="https://github.com/user-attachments/assets/c0350c25-bb28-4479-844d-319bf987b268" />
 <img width="1211" height="861" alt="image" src="https://github.com/user-attachments/assets/918cef3e-e40c-43f0-884b-35be5cb01315" />
 
 
@@ -186,7 +186,7 @@ The search can reveal multiple occurrences of the NTFS filesystem identifier wit
 It is important to note that finding multiple `NTFS` strings does **not necessarily mean that there are multiple NTFS partitions**. In this case, the first relevant NTFS structure was identified at sector `128`.  
 This provides a useful reference when investigating the incorrect partition start sector.
 
-<img width="1363" height="843" alt="image" src="https://github.com/user-attachments/assets/c0350c25-bb28-4479-844d-319bf987b268" />
+<img width="1177" height="846" alt="image" src="https://github.com/user-attachments/assets/a93917aa-3102-45e1-89a1-73aadbdf9b75" /> 
 
 
 - **6.Correcting the Partition Entry**
