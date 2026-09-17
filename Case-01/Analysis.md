@@ -157,13 +157,8 @@ After examining the four entries, we can see that:
 
 - **4. Relative Sector & Total Sector**
 
- **Relative Sector** specifies the starting sector of the partition relative to the beginning of the disk. It tells the system where the partition begins so that the filesystem data can be located correctly.  
-
-In our case, the Relative Sector value is `1094795585` and this value does not point to the expected location of the partition.  
-During the investigation, we identified that the first NTFS filesystem structure begins at **sector 128**.  
-Therefore, the incorrect Relative Sector value appears to be preventing the partition from being located correctly.  
-
-
+**Relative Sector** specifies the starting sector of the partition relative to the beginning of the disk. It tells the system where the partition begins so that the filesystem data can be located correctly.    
+In our case, the Relative Sector value is `1094795585` and this value does not point to the expected location of the partition.   
 **Total Sectors** specifies the number of sectors allocated to the partition. Together with the Relative Sector value, it defines the partition's location and size on the disk.
 
 ```text
@@ -181,8 +176,7 @@ These values are important when reconstructing or validating a damaged partition
 
 We can also use **Ctrl + F** in 010 Editor to search for the string `NTFS`
 The search can reveal multiple occurrences of the NTFS filesystem identifier within the image.
-It is important to note that finding multiple `NTFS` strings does **not necessarily mean that there are multiple NTFS partitions**. In this case, the first relevant NTFS structure was identified at sector `128`.  
-This provides a useful reference when investigating the incorrect partition start sector.
+In this case, the first relevant NTFS structure was identified at sector `128` and this provides a useful reference when investigating the incorrect partition start sector.
 
 <img width="1177" height="846" alt="image" src="https://github.com/user-attachments/assets/a93917aa-3102-45e1-89a1-73aadbdf9b75" /> 
 
