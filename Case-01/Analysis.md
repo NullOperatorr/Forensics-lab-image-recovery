@@ -124,8 +124,6 @@ Before we start, you need to understand what the tools we are using do.
 <img width="1059" height="245" alt="image" src="https://github.com/user-attachments/assets/d2afb204-522f-423d-ab47-06d5ae95a3b8" />  
 <img width="1177" height="846" alt="image" src="https://github.com/user-attachments/assets/a93917aa-3102-45e1-89a1-73aadbdf9b75" />
 <img width="987" height="566" alt="image" src="https://github.com/user-attachments/assets/922c9b45-b680-4ab8-8b9c-a0c3799113ad" />
-<img width="868" height="402" alt="image" src="https://github.com/user-attachments/assets/9cb8980c-ff66-4124-a348-ba9d02c3d7cb" />
-<img width="1331" height="954" alt="image" src="https://github.com/user-attachments/assets/4eba6af6-3b8e-4a6a-9f64-0639a2f13555" />
 
 
   
@@ -249,6 +247,11 @@ The modified image is then saved as a **separate working copy**.
 **5. Testing the Recovery**
 
 After saving the modified working copy, load the image again in **FTK Imager**.  
+
+<img width="868" height="402" alt="image" src="https://github.com/user-attachments/assets/9cb8980c-ff66-4124-a348-ba9d02c3d7cb" />
+<img width="1331" height="954" alt="image" src="https://github.com/user-attachments/assets/4eba6af6-3b8e-4a6a-9f64-0639a2f13555" />
+
+
 After loading the modified image, we can verify whether:
 
 * The partition is recognized.
