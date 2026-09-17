@@ -120,9 +120,7 @@ Before we start, you need to understand what the tools we are using do.
 
  
     
-<img width="1363" height="843" alt="image" src="https://github.com/user-attachments/assets/c0350c25-bb28-4479-844d-319bf987b268" />
-<img width="559" height="381" alt="image" src="https://github.com/user-attachments/assets/42010b6d-3b52-4afc-a38c-64828665eda9" />
-<img width="1211" height="861" alt="image" src="https://github.com/user-attachments/assets/918cef3e-e40c-43f0-884b-35be5cb01315" />
+
 <img width="1059" height="245" alt="image" src="https://github.com/user-attachments/assets/d2afb204-522f-423d-ab47-06d5ae95a3b8" />  
 <img width="1177" height="846" alt="image" src="https://github.com/user-attachments/assets/a93917aa-3102-45e1-89a1-73aadbdf9b75" />
 <img width="987" height="566" alt="image" src="https://github.com/user-attachments/assets/922c9b45-b680-4ab8-8b9c-a0c3799113ad" />
@@ -140,11 +138,12 @@ This displays the file offset as sector numbers instead of hexadecimal addresses
 
 <img width="938" height="453" alt="image" src="https://github.com/user-attachments/assets/36f3d38e-dac4-4e56-a579-ca39302cb641" />
 
-### Examining the First 512 Bytes
+3. Examining the First 512 Bytes & Partition table.
 
-To make the MBR structure easier to understand, download the `drive.bt` binary template from the template repository and load it into **010 Editor**.
-
+To make the MBR structure easier to understand, download the `drive.bt` binary template from the template repository and load it into **010 Editor**.  
 The template helps interpret the first **512 bytes** according to the MBR structure instead of viewing the bytes only as raw hexadecimal values.
+
+<img width="1363" height="843" alt="image" src="https://github.com/user-attachments/assets/c0350c25-bb28-4479-844d-319bf987b268" />
 
 After applying the template, we can identify:
 
@@ -154,7 +153,6 @@ After applying the template, we can identify:
 
 The `55 AA` value appears at the end of the sector and indicates the expected MBR boot signature.
 
-### Examining the Partition Table
 
 The MBR partition table contains **four partition entries**, with each entry occupying **16 bytes**.
 
@@ -164,6 +162,10 @@ After examining the four entries, we can see that:
 * The other partition entries contain `00` values and do not describe an active partition in this image.
 
 Each partition entry contains several important fields, including the partition type, starting location, and size.
+
+<img width="559" height="381" alt="image" src="https://github.com/user-attachments/assets/42010b6d-3b52-4afc-a38c-64828665eda9" />
+<img width="1211" height="861" alt="image" src="https://github.com/user-attachments/assets/918cef3e-e40c-43f0-884b-35be5cb01315" />
+
 
 ### Relative Sector
 
