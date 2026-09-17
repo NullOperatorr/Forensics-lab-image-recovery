@@ -16,6 +16,16 @@ Your task is to determine the cause of the corruption and recover the original i
 - **Note:** All analysis and recovery attempts must be performed on copies of the evidence to preserve its integrity.
 
 
+## Case Summary
+
+**Case:** Forensic Image Corruption Recovery
+**Evidence:** Two corrupted image files
+**Tools:** FTK Imager, 010 Editor
+**Objective:** Identify the corruption and recover the original images
+**Result:** Images successfully recovered and verified
+
+
+
 ## Objectives
 
 - Analyze file headers and metadata.
