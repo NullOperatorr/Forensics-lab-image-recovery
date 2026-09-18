@@ -187,7 +187,7 @@ Based on the hexadecimal analysis, the **Relative Sector** value appears to be i
 
 After saving the modified working copy, load the image again in **FTK Imager**.  
 
-<img width="868" height="402" alt="image" src="https://github.com/user-attachments/assets/9cb8980c-ff66-4124-a348-ba9d02c3d7cb" />
+<img width="777" height="595" alt="image" src="https://github.com/user-attachments/assets/1896b861-0182-47f6-8be2-e1203b6367bd" />
 <img width="1331" height="954" alt="image" src="https://github.com/user-attachments/assets/4eba6af6-3b8e-4a6a-9f64-0639a2f13555" />
 
 
