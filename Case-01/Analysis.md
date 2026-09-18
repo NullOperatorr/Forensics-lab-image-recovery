@@ -199,7 +199,7 @@ After loading the modified image, we can verify whether:
 * The image contents can be accessed.
 * The expected files or forensic artifacts are available.
 
-In this case, the modification allows the image to be successfully accessed, and the expected **flag** is recovered.
+In this case, the modification allows the image to be successfully accessed, and the **Flag** is recovered.
 
 
 
