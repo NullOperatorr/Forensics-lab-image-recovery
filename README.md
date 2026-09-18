@@ -30,7 +30,6 @@ Your task is to determine the cause of the corruption and recover the original i
 
 ## Objectives
 
-- Analyze file headers and metadata.
 - Identify corruption using hexadecimal analysis.
 - Recover the images when possible.
 - Verify the recovered images.
