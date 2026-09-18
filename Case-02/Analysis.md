@@ -199,7 +199,7 @@ We found the 4th NTFS structure at sector `202,879`. Using the partition's Relat
 
 After saving the modified working copy, load the image again in **FTK Imager**.  
 
-<img width="868" height="402" alt="image" src="https://github.com/user-attachments/assets/9cb8980c-ff66-4124-a348-ba9d02c3d7cb" />
+<img width="712" height="657" alt="image" src="https://github.com/user-attachments/assets/d1502d84-2c3a-44f7-9dbb-9849142d78d8" />
 <img width="634" height="593" alt="image" src="https://github.com/user-attachments/assets/706d89fe-8674-4c43-8760-33550d91a3e5" />
 
 
