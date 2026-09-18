@@ -99,8 +99,8 @@ Before we start, you need to understand what the tools we are using do.
 
   <img width="641" height="553" alt="image" src="https://github.com/user-attachments/assets/ed1e1fdd-8b01-427b-a57d-b3636c6cd2fd" />
   <img width="498" height="375" alt="image" src="https://github.com/user-attachments/assets/dc86a699-1863-4789-90d0-0f514e8ac9b6" />
-  <img width="1365" height="1105" alt="image" src="https://github.com/user-attachments/assets/2b575dc5-6e00-402f-ae17-8bdf4abf5f9f" />
-  <img width="782" height="591" alt="image" src="https://github.com/user-attachments/assets/42cbdf5d-bed6-4d62-aca7-804ea0b3e38b" />
+  <img width="1172" height="974" alt="image" src="https://github.com/user-attachments/assets/7ab63d4d-ea17-4811-81ee-5cba8cc7f799" />
+ <img width="1038" height="791" alt="image" src="https://github.com/user-attachments/assets/c1ecf68e-d127-4eff-8427-5725fd8f37c9" />
   <img width="684" height="632" alt="image" src="https://github.com/user-attachments/assets/8d6f09ca-2464-4722-bd00-f7fb272612f1" />
 
 
@@ -151,7 +151,8 @@ After examining the four entries, we can see that:
 * **Partition 0** contains the relevant partition information.
 * The other partition entries contain `00` values and do not describe an active partition in this image.
 
-<img width="1211" height="861" alt="image" src="https://github.com/user-attachments/assets/918cef3e-e40c-43f0-884b-35be5cb01315" />
+<img width="1004" height="840" alt="image" src="https://github.com/user-attachments/assets/9e2e30a9-721c-4c98-81c5-2f1e1ca81e60" />
+
 
 
 - **4. Relative Sector & Total Sector**
@@ -163,10 +164,10 @@ In our case, the Relative Sector value is `1094795585` and this value does not p
 ```text
 Partition Start = Relative Sector
 Partition Size  = Total Sectors
-Partition End   = Relative Sector + Total Sectors - 1
 ```
 
-<img width="1059" height="245" alt="image" src="https://github.com/user-attachments/assets/d2afb204-522f-423d-ab47-06d5ae95a3b8" />  
+<img width="764" height="427" alt="image" src="https://github.com/user-attachments/assets/2dd3e9eb-8770-4bda-ba7a-12322e7b1c2a" />
+
 
 - **5. Searching for NTFS Structures**
 
@@ -174,21 +175,33 @@ We can also use **Ctrl + F** in 010 Editor to search for the string `NTFS`
 The search can reveal multiple occurrences of the NTFS filesystem identifier within the image.
 In this case, the first relevant NTFS structure was identified at sector `128` and this provides a useful reference when investigating the incorrect partition start sector.
 
-<img width="1177" height="846" alt="image" src="https://github.com/user-attachments/assets/a93917aa-3102-45e1-89a1-73aadbdf9b75" /> 
+<img width="948" height="786" alt="image" src="https://github.com/user-attachments/assets/5f0d99cb-3793-455e-a592-2e604c2b35cc" />
+
 
 
 - **6.Correcting the Partition Entry**
 
 Based on the hexadecimal analysis, the **Relative Sector** value appears to be incorrect and the expected starting sector identified during the investigation is `128` therefore change the Relative Sector value from `1094795585 → 128`
 
-<img width="987" height="566" alt="image" src="https://github.com/user-attachments/assets/922c9b45-b680-4ab8-8b9c-a0c3799113ad" />
+<img width="904" height="953" alt="image" src="https://github.com/user-attachments/assets/4548855c-98a7-41d2-86de-7d17b1e06652" />
 
-**6. Testing the Recovery**
+Since the Total Sectors current value is incorrect, we use the **4th NTFS structure** to identify the end of the partition and calculate the correct number of sectors using `Total Sectors = Ending Sector - Relative Sector `.
+
+<img width="1277" height="960" alt="image" src="https://github.com/user-attachments/assets/17b00e91-e096-45f9-9309-1a5801187c1f" />
+
+We found the 4th NTFS structure at sector `202,879`. Using the partition's Relative Sector `128`, we calculate the partition size as `202,879 - 128  = 202,751` Total Sectors, and update the value.
+
+<img width="816" height="549" alt="image" src="https://github.com/user-attachments/assets/8cae6154-c5e3-4d96-a223-db7567eb2d33" />
+
+
+
+**7. Testing the Recovery**
 
 After saving the modified working copy, load the image again in **FTK Imager**.  
 
 <img width="868" height="402" alt="image" src="https://github.com/user-attachments/assets/9cb8980c-ff66-4124-a348-ba9d02c3d7cb" />
-<img width="1331" height="954" alt="image" src="https://github.com/user-attachments/assets/4eba6af6-3b8e-4a6a-9f64-0639a2f13555" />
+<img width="634" height="593" alt="image" src="https://github.com/user-attachments/assets/706d89fe-8674-4c43-8760-33550d91a3e5" />
+
 
 
 After loading the modified image, we can verify whether:
@@ -198,7 +211,7 @@ After loading the modified image, we can verify whether:
 * The image contents can be accessed.
 * The expected files or forensic artifacts are available.
 
-In this case, the modification allows the image to be successfully accessed, and the **Flag** is recovered.
+In this case, the modification allows the image to be successfully accessed.
 
 
 
