@@ -183,7 +183,7 @@ Based on the hexadecimal analysis, the **Relative Sector** value appears to be i
 
 <img width="987" height="566" alt="image" src="https://github.com/user-attachments/assets/922c9b45-b680-4ab8-8b9c-a0c3799113ad" />
 
-**6. Testing the Recovery**
+**7. Testing the Recovery**
 
 After saving the modified working copy, load the image again in **FTK Imager**.  
 
