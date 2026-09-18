@@ -44,7 +44,6 @@ Your task is to determine the cause of the corruption and recover the original i
 ### Step 1: Initial Examination
 
 - Loaded the files into FTK Imager.  
-- Checked the file size and timestamps.  
 - Examined the available metadata.  
 - Confirmed that the images could not be opened normally.  
 
@@ -68,7 +67,6 @@ Your task is to determine the cause of the corruption and recover the original i
 ##  Lessons Learned  
 
 - Always preserve the original evidence before starting any analysis.
-- File headers are important for identifying and recovering corrupted files.
 - Hexadecimal analysis can reveal corruption that is not visible through normal file examination.
 - Recovery should always be performed on a copy, never on the original evidence.
 - After recovery, the resulting files should be verified to confirm that they are usable and consistent with the investigation findings.
