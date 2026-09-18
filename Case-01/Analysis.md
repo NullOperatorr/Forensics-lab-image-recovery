@@ -52,7 +52,6 @@ For example, a **VBR** contains important information such as:
 * Bytes per sector
 * Sectors per cluster
 * Reserved sectors
-* Number of FATs
 * Filesystem-related metadata
 
 The VBR is important during forensic analysis because damage to its values can prevent the operating system or forensic tools from correctly recognizing the filesystem.
